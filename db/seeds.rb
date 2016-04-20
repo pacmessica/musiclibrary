@@ -50,8 +50,20 @@ songs["The Mollusk"] =
 
 
 songs.each do | album_name, song_list |
-  album = Album.find_by( name:album_name)
+  album = Album.find_by(name:album_name)
   song_list.split(", ").each do | title |
-    Song.create( title:title, album_id:album.id, artist_id:album.artist_id )
+    Song.create(title:title, album_id:album.id, artist_id:album.artist_id)
+  end
+end
+
+30.times do
+  year = Random.rand(1970...2016)
+  word_count = Random.rand(1...4)
+  artist = Artist.create(name:Faker::Superhero.name)
+  album = Album.create(name:Faker::Hipster.sentence(word_count), year:year, artist_id:artist.id)
+  song_count = Random.rand(1...10)
+  songs = Faker::Hipster.words(song_count)
+  songs.each do | title |
+    Song.create(title:title, album_id:album.id, artist_id:artist.id)
   end
 end
