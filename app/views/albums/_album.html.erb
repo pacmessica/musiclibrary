@@ -1,0 +1,18 @@
+<div class="album-item">
+
+   <div class="inline cover">
+     <%= image_tag(album.cover, class:"small-cover") %>
+   </div>
+
+   <div class="inline details">
+
+      <h3><%= link_to album.name, album %></h3>
+      <% if !defined?(hide_artist) || !hide_artist %>
+        <h4><%= link_to album.artist.name, album.artist %></h4>
+      <%end%>
+
+      <p><%= album.year %></p>
+
+   </div>
+
+</div>
