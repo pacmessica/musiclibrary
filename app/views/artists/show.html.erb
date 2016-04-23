@@ -1,8 +1,8 @@
-<h1>
+<h1 class="lobster">
    <%= @artist.name %>
 </h1>
 
-<h2>Albums</h2>
+<h2 class="amatic">Albums</h2>
 <% albums = @artist.albums.sort_by { |album| album.year } %>
 
 <%= render albums, hide_artist: true %>

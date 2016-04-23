@@ -14,11 +14,10 @@
  *= require_self
  */
 //
-$navbar-default-color: yellow;
 $navbar-default-link-color: black;
 $navbar-default-brand-hover-color: 	#728005;
 $navbar-default-link-active-color: #E12D4C;
-$navbar-default-toggle-border-color: red;
+$navbar-default-toggle-border-color: #4F181E;
 $navbar-default-bg: #F9897C;
 $navbar-default-link-hover-color: #F5D0CB;
 $navbar-default-link-active-bg: #4F181E;
@@ -28,6 +27,7 @@ $dropdown-link-hover-bg: #4F181E;
 $dropdown-link-color: #E12D4C;
 $dropdown-link-active-color: pink;
 $dropdown-link-hover-color: #B5D31F;
+$dropdown-fallback-border: #E12D4C;
 
 
 
@@ -44,10 +44,17 @@ div#main {
 
 body {
   background-color: #F0D5B7;
-  font-family: 'Lobster', cursive;
 }
 
 .navbar-default .navbar-brand {
     font-family: 'Amatic SC', cursive;
     font-size: 30pt;
+}
+
+.lobster {
+ font-family: 'Lobster', cursive;
+}
+
+.amatic {
+  font-family: 'Amatic SC', cursive;
 }
