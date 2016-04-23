@@ -7,3 +7,8 @@
 <h3><%= link_to @album.artist.name, @album.artist %> </h3>
 
 <p><%= @album.year %></p>
+
+<h2>Songs</h2>
+<% songs = @album.songs %>
+
+<%= render songs %>
