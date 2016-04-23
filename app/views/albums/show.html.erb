@@ -1,0 +1,9 @@
+<h1>
+   <%= @album.name %>
+</h1>
+
+<div><%= image_tag(@album.cover, class:"cover") %></div>
+
+<h3><%= link_to @album.artist.name, @album.artist %> </h3>
+
+<p><%= @album.year %></p>

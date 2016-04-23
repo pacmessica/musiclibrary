@@ -1,0 +1,26 @@
+img.small-cover {
+    width: 200px;
+    height: 200px;
+}
+
+div.inline {
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+div.album-item {
+   margin-top: 14px;
+
+   .cover {
+      margin-right: 10px;
+   }
+
+   .details {
+      width: 400px;
+   }
+}
+
+img.cover {
+    width: 400px;
+    height: 400px;
+}
