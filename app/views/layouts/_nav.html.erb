@@ -30,12 +30,13 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Artist or Track">
-        </div>
-        <button type="submit" class="btn btn-default lobster">Submit</button>
-      </form>
+      <div class="form-group navbar-form navbar-right">
+        <%= form_tag(search_path, :method => "get", role:"search") do %>
+          <%= text_field_tag :artist_search, params[:artist_search], placeholder: "Artist", class: 'form-control' %>
+          <%= text_field_tag :track_search, params[:track_search], placeholder: "Track", class: 'form-control' %>
+          <%= submit_tag "Search", class: 'btn btn-default lobster' %>
+        <% end %>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

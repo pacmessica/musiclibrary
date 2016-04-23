@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :artists
   resources :albums
   resources :songs
+
+  get '/search' => 'search#index', :as => 'search'
 end

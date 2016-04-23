@@ -8,9 +8,15 @@
   <link href='https://fonts.googleapis.com/css?family=Lobster|Amatic+SC' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
 <div id="main" class="container-fluid">
    <%= render "layouts/nav" %>
+   <p class="notice" >
+    <% unless notice.nil? %>
+      <div class="notice-msg">
+        <%= notice %>
+      </div>
+    <% end %>
+  </p>
 
    <%= yield %>
 </div>
