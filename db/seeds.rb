@@ -3,12 +3,6 @@ Album.destroy_all
 Artist.destroy_all
 
 
-artists = ["Frank Sinatra", "Nirvana", "Ben Folds", "Ween", "Better Than Ezra", "Porcupine Tree"]
-
-artists.each do |name|
-  Artist.create(name: name)
-end
-
 albums = {}
 
 albums["Ween"] = [
@@ -28,10 +22,7 @@ albums["Ben Folds"] = [
 ]
 
 albums.each do | album_artist, album_info |
-  if artist = Artist.find_by( name:album_artist)
-  else
-    artist = Artist.create( name:album_artist)
-  end
+  artist = Artist.create( name:album_artist)
   album_info.each do | name, cover, year |
     Album.create( name:name, cover:cover, year:year, artist_id:artist.id)
   end
@@ -57,13 +48,16 @@ songs.each do | album_name, song_list |
 end
 
 30.times do
-  year = Random.rand(1970...2016)
-  word_count = Random.rand(1...4)
   artist = Artist.create(name:Faker::Superhero.name)
-  album = Album.create(name:Faker::Hipster.sentence(word_count), year:year, artist_id:artist.id)
-  song_count = Random.rand(1...10)
-  songs = Faker::Hipster.words(song_count)
-  songs.each do | title |
-    Song.create(title:title, album_id:album.id, artist_id:artist.id)
+  number_of_albums = Random.rand(1...5)
+  number_of_albums.times do
+    year = Random.rand(1970...2016)
+    word_count = Random.rand(1...4)
+    album = Album.create(name:Faker::Hipster.sentence(word_count), cover:Faker::Avatar.image, year:year, artist_id:artist.id)
+    song_count = Random.rand(1...10)
+    songs = Faker::Hipster.words(song_count)
+    songs.each do | title |
+      Song.create(title:title, album_id:album.id, artist_id:artist.id)
+    end
   end
 end
