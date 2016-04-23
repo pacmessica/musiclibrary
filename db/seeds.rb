@@ -59,4 +59,5 @@ end
     songs.each do | title |
       Song.create(title:title, album_id:album.id, artist_id:artist.id)
     end
+  end  
 end
