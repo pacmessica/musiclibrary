@@ -1,5 +1,17 @@
+<% hearted = Heart.find_by(song: song, user: current_user ) != nil %>
+<% btn_color = hearted ? "danger" : "default" %>
+
 <% if !defined?(hide_artist) || !hide_artist %>
-  <h4><%= link_to song.artist.name, song.artist %><small> - <%= song.title %></small></h4>
+  <h4><%= link_to song.artist.name, song.artist %>
+    <small> - <%= song.title %></small>
+    .......................................
+    <%= song.hearts.count %><%= link_to "<3", song_hearts_path( song ), method: :post, class: "btn btn-#{btn_color} btn-xs", disabled: !user_signed_in? %>
+  </h4>
 <%else%>
-  <p><%= song.title %></p>
+  <p>
+    <%= song.title %>
+    .......................................
+    <%= song.hearts.count %>
+    <%= link_to "<3", song_hearts_path( song ), method: :post, class: "btn btn-#{btn_color} btn-xs", disabled: !user_signed_in? %>
+  </p>
 <%end%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424205742) do
+ActiveRecord::Schema.define(version: 20160424212138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20160424205742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "hearts", force: :cascade do |t|
+    t.integer  "song_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "hearts", ["song_id"], name: "index_hearts_on_song_id", using: :btree
+  add_index "hearts", ["user_id"], name: "index_hearts_on_user_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "title"
@@ -60,6 +70,8 @@ ActiveRecord::Schema.define(version: 20160424205742) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "albums", "artists"
+  add_foreign_key "hearts", "songs"
+  add_foreign_key "hearts", "users"
   add_foreign_key "songs", "albums"
   add_foreign_key "songs", "artists"
 end
