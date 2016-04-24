@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root "artists#index"
   resources :artists
   resources :albums
-  resources :songs
+  resources :songs do
+    resources :hearts
+  end
 
   get '/search' => 'search#index', :as => 'search'
 end
