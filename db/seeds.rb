@@ -47,17 +47,18 @@ songs.each do | album_name, song_list |
   end
 end
 
-30.times do
+40.times do
   artist = Artist.create(name:Faker::Superhero.name)
   number_of_albums = Random.rand(1...5)
   number_of_albums.times do
     year = Random.rand(1970...2016)
-    word_count = Random.rand(1...4)
-    album = Album.create(name:Faker::Hipster.sentence(word_count), cover:Faker::Avatar.image, year:year, artist_id:artist.id)
-    song_count = Random.rand(1...10)
+    word_count = Random.rand(1...2)
+    image_index = Random.rand(1...16)
+    album = Album.create(name:Faker::Hipster.sentence(word_count), cover:"beets#{image_index}.jpg", year:year, artist_id:artist.id)
+    song_count = Random.rand(2...14)
     songs = Faker::Hipster.words(song_count)
     songs.each do | title |
       Song.create(title:title, album_id:album.id, artist_id:artist.id)
     end
-  end  
+  end
 end
