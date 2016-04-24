@@ -39,4 +39,13 @@
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+  <div>
+    <ul class="nav navbar-nav navbar-right">
+        <% if !user_signed_in? %>
+            <li><%= link_to "Log In", new_user_session_path %></li>
+        <% else %>
+            <li><span class="navbar-text"><%= current_user.email %></span></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+      <% end %>
+  </div>
 </nav>
