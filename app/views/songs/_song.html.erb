@@ -1,2 +1,5 @@
-
-<p><%= song.title %></p>
+<% if !defined?(hide_artist) || !hide_artist %>
+  <h4><%= link_to song.artist.name, song.artist %><small> - <%= song.title %></small></h4>
+<%else%>
+  <p><%= song.title %></p>
+<%end%>
