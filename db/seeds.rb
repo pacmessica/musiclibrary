@@ -62,3 +62,7 @@ end
     end
   end
 end
+
+5.times do |x|
+  User.create( email:Faker::Internet.email, password:Faker::Internet.password)
+end
